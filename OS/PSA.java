@@ -1,4 +1,4 @@
-dndhhpackage OS;
+
 //PSA process stratigy algorithem 
 public class PSA {
     private String ProcessID;
@@ -9,16 +9,18 @@ public class PSA {
     private int waitTime;
     private int responseTime;
     private int turnaroundTime;
+    private int originalBurstTime;
 
     public PSA (String ProcessID,int arrivalTime,int brustTime){
     this.ProcessID=ProcessID;
     this.arrivalTime=arrivalTime;
     this.brustTime=brustTime;
-    this.startTime=0;
-    this.termintionTime=0;
+    this.startTime=-1;
+    this.termintionTime=-1;
     this.turnaroundTime=0;
     this.waitTime=0;
     this.responseTime=0;
+    this.originalBurstTime=brustTime;
     }
     
     public String getProcessID(){
@@ -32,6 +34,9 @@ public class PSA {
     }
     public void setbrustTime(int b){
         brustTime=b;
+    }
+    public int getOriginalBurstTime() {
+        return originalBurstTime;  // Return the original burst time (unchanged)
     }
     public int getstartTime(){
         return startTime;
@@ -68,5 +73,11 @@ public class PSA {
     }
     public void setarrivalTime(int a){
         arrivalTime=a;
+    }
+
+    @Override
+    public String toString() {
+        return "ID: "+ProcessID+" arraivale time: "+ arrivalTime+" brust time: "+brustTime;
+        
     }
 }
